@@ -1,0 +1,26 @@
+# Docker Compose configuration for local development
+# Provides PostgreSQL database and optional pgAdmin
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:17-alpine
+    container_name: cap_table_db
+    environment:
+      POSTGRES_DB: cap_table_db
+      POSTGRES_USER: cap_table_user
+      POSTGRES_PASSWORD: password
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - cap_table_network
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  cap_table_network:
+    driver: bridge
