@@ -230,7 +230,7 @@ class PDFService:
         page_width, page_height = A4
         canvas.translate(page_width / 2, page_height / 2)
         canvas.rotate(45)
-        canvas.drawCentredText(0, 0, "SHARE CERTIFICATE")
+        canvas.drawCentredString(0, 0, "SHARE CERTIFICATE")
 
         # Restore canvas state
         canvas.restoreState()

@@ -82,6 +82,7 @@ class BaseRepository(Generic[ModelType, CreateSchemaType, UpdateSchemaType], ABC
 
         Raises:
             IntegrityError: If database constraints are violated
+            :rtype: ModelType
         """
         # Convert Pydantic model to dict, excluding unset values
         if hasattr(obj_in, 'dict'):
