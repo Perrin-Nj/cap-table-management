@@ -74,7 +74,7 @@ class AuthService:
         return Token(
             access_token=access_token,
             token_type="bearer",
-            expires_in=settings.access_token_expire_minutes * 60  # Convert to seconds
+            expires_in=settings.access_token_expire_minutes * 60
         )
 
     def get_current_user_from_token(self, token: str) -> dict:

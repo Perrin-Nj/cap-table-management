@@ -126,6 +126,7 @@ async def custom_http_exception_handler(request: Request, exc: HTTPException):
     return await http_exception_handler(request, exc)
 
 
+@app.exception_handler(Exception)
 async def general_exception_handler(request: Request, exc: Exception):
     logger.error(f"Unexpected error: {exc} - {request.method} {request.url}", exc_info=True)
     return JSONResponse(

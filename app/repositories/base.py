@@ -1,5 +1,4 @@
-# Base repository following Repository pattern and SOLID principles
-# Single Responsibility: Data access abstraction
+# Data access abstraction
 # Open/Closed: Extensible for specific repositories
 
 from abc import ABC

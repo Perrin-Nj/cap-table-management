@@ -55,7 +55,7 @@ class PDFService:
             leftMargin=72,
             topMargin=72,
             bottomMargin=72,
-            title=f"Share Certificate {issuance.certificate_number}"
+            title=f"Issuance Certificate {issuance.certificate_number}"
         )
 
         # Build certificate content
@@ -132,7 +132,7 @@ class PDFService:
         story.append(Paragraph(settings.company_name, self.company_style))
 
         # Certificate title
-        story.append(Paragraph("SHARE CERTIFICATE", self.title_style))
+        story.append(Paragraph("ISSUANCE CERTIFICATE", self.title_style))
 
         # Certificate number and date
         # Continuing from app/services/pdf.py

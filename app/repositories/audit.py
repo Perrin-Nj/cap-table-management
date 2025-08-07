@@ -1,5 +1,4 @@
 # Audit repository for compliance and monitoring
-# Immutable records for security and regulatory requirements
 
 from typing import List
 

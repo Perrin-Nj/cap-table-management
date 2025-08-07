@@ -1,5 +1,3 @@
-# Docker Compose configuration for local development
-# Provides PostgreSQL database and optional pgAdmin
 services:
   # PostgreSQL Database
   postgres:

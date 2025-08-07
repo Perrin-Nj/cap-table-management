@@ -1,5 +1,3 @@
-# Shareholder-related schemas following Interface Segregation Principle
-
 from datetime import datetime
 from decimal import Decimal
 from typing import Optional, List
