@@ -2,10 +2,12 @@
 # Single Responsibility: Data access abstraction
 # Open/Closed: Extensible for specific repositories
 
-from abc import ABC, abstractmethod
+from abc import ABC
 from typing import Generic, TypeVar, List, Optional, Type
-from sqlalchemy.orm import Session
+
 from sqlalchemy.exc import IntegrityError
+from sqlalchemy.orm import Session
+
 from app.database import Base
 
 # Generic type for model classes

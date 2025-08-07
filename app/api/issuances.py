@@ -2,15 +2,17 @@
 # Handles share issuance operations and certificate generation
 
 from typing import List
-from fastapi import APIRouter, Depends, HTTPException, status, Request, Response
+
+from fastapi import APIRouter, Depends, HTTPException, status, Request
 from fastapi.responses import StreamingResponse
 from sqlalchemy.orm import Session
+
+from app.api.deps import get_admin_user, get_current_active_user, get_client_ip
 from app.database import get_db
 from app.schemas.shareholder import ShareIssuanceCreate, ShareIssuanceResponse
+from app.services.audit import AuditService
 from app.services.issuance import ShareIssuanceService
 from app.services.pdf import PDFService
-from app.services.audit import AuditService
-from app.api.deps import get_admin_user, get_current_active_user, get_client_ip
 
 router = APIRouter()
 

@@ -1,20 +1,19 @@
 # Database connection and session management
-# Follows Dependency Inversion Principle by providing abstractions
+# This follows Dependency Inversion Principle by providing abstractions
+
+import logging
+from typing import Generator
 
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, Session
-from sqlalchemy.pool import StaticPool
-from typing import Generator
-import logging
 
 from app.config import settings
 
-# Configure logging for database operations
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Create SQLAlchemy engine with connection pooling for performance
+# SQLAlchemy engine with connection pooling for performance
 engine = create_engine(
     settings.database_url,
     # Connection pooling settings for performance
@@ -45,13 +44,11 @@ def get_db() -> Generator[Session, None, None]:
     """
     db = SessionLocal()
     try:
-        # Yield session for use in endpoints
         yield db
     except Exception as e:
-        # Rollback on any exception to maintain data integrity
         logger.error(f"Database error: {e}")
         db.rollback()
         raise
     finally:
-        # Always close session to prevent connection leaks
+        # Close session to prevent connection leaks
         db.close()

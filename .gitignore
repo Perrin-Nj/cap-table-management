@@ -17,9 +17,6 @@ env/
 # VS Code settings
 .vscode/
 
-# MacOS system files
-.DS_Store
-
 # PyCharm
 .idea/
 
@@ -28,3 +25,4 @@ env/
 
 # Local env settings
 *.env
+presentation.txt

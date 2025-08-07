@@ -2,14 +2,15 @@
 # Handles all authentication-related business logic
 
 from datetime import timedelta
-from typing import Optional
+
 from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
-from app.repositories.user import UserRepository
+
+from app.config import settings
 from app.repositories.audit import AuditRepository
+from app.repositories.user import UserRepository
 from app.schemas.user import UserLogin, Token
 from app.utils.security import create_access_token
-from app.config import settings
 
 
 class AuthService:
@@ -70,9 +71,6 @@ class AuthService:
             ip_address=ip_address,
             event_data={"email": user.email, "role": user.role.value}
         )
-
-        # Continuing from app/services/auth.py
-
         return Token(
             access_token=access_token,
             token_type="bearer",

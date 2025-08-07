@@ -2,11 +2,13 @@
 # Optimized for performance with proper indexing and joins
 
 from typing import List, Optional
-from sqlalchemy.orm import Session, joinedload
+
 from sqlalchemy import func, desc
-from app.repositories.base import BaseRepository
+from sqlalchemy.orm import Session, joinedload
+
 from app.models.shareholder import ShareholderProfile, ShareIssuance
 from app.models.user import User
+from app.repositories.base import BaseRepository
 from app.schemas.shareholder import ShareholderProfileCreate, ShareholderProfileUpdate, ShareIssuanceCreate
 
 

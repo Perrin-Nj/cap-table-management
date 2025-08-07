@@ -1,10 +1,12 @@
 # Shareholder and share issuance models
 # Each class has a single responsibility
 
+from decimal import Decimal
+
 from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Numeric, Text
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
-from decimal import Decimal
+
 from app.database import Base
 
 

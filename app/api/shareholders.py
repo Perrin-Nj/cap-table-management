@@ -2,17 +2,19 @@
 # Handles all shareholder-related operations with proper authorization
 
 from typing import List
+
 from fastapi import APIRouter, Depends, HTTPException, status, Request
 from sqlalchemy.orm import Session
+
+from app.api.deps import get_admin_user, get_current_active_user, get_client_ip
 from app.database import get_db
 from app.schemas.shareholder import (
     ShareholderProfileCreate,
     ShareholderProfileResponse,
     ShareholderSummary
 )
-from app.services.shareholder import ShareholderService
 from app.services.audit import AuditService
-from app.api.deps import get_admin_user, get_current_active_user, get_client_ip
+from app.services.shareholder import ShareholderService
 
 router = APIRouter()
 

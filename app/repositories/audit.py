@@ -1,11 +1,13 @@
 # Audit repository for compliance and monitoring
 # Immutable records for security and regulatory requirements
 
-from typing import List, Optional
-from sqlalchemy.orm import Session, joinedload
+from typing import List
+
 from sqlalchemy import desc
-from app.repositories.base import BaseRepository
+from sqlalchemy.orm import Session, joinedload
+
 from app.models.audit import AuditEvent
+from app.repositories.base import BaseRepository
 
 
 class AuditRepository(BaseRepository[AuditEvent, dict, None]):

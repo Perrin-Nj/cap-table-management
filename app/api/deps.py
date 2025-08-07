@@ -1,15 +1,11 @@
-# API dependencies for authentication and authorization
-# Follows Dependency Injection pattern for clean separation
-
-from typing import Generator
 from fastapi import Depends, HTTPException, status, Request
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from sqlalchemy.orm import Session
-from app.database import get_db
-from app.services.auth import AuthService
-from app.models.user import UserRole
 
-# HTTP Bearer token scheme for JWT authentication
+from app.database import get_db
+from app.models.user import UserRole
+from app.services.auth import AuthService
+
 security = HTTPBearer()
 
 

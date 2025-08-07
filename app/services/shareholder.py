@@ -1,23 +1,25 @@
 # Shareholder service handling business logic
 # Follows Single Responsibility and Dependency Inversion principles
 
+import secrets
+import string
 from typing import List, Optional
+
 from fastapi import HTTPException, status
-from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError
+from sqlalchemy.orm import Session
+
+from app.models.user import UserRole
+from app.repositories.audit import AuditRepository
 from app.repositories.shareholder import ShareholderRepository
 from app.repositories.user import UserRepository
-from app.repositories.audit import AuditRepository
 from app.schemas.shareholder import (
     ShareholderProfileCreate,
     ShareholderProfileResponse,
     ShareholderSummary
 )
 from app.schemas.user import UserCreate
-from app.models.user import UserRole
 from app.utils.security import get_password_hash
-import secrets
-import string
 
 
 class ShareholderService:

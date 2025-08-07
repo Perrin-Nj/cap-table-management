@@ -1,10 +1,10 @@
 # Audit service for comprehensive event logging
 # Provides standardized audit trail across the application
 
-from typing import Optional, Dict, Any
 from sqlalchemy.orm import Session
-from app.repositories.audit import AuditRepository
+
 from app.models.audit import AuditEvent
+from app.repositories.audit import AuditRepository
 
 
 class AuditService:

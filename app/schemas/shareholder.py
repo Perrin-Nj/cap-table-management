@@ -1,9 +1,10 @@
 # Shareholder-related schemas following Interface Segregation Principle
 
-from pydantic import BaseModel, Field, validator
-from typing import Optional, List
 from datetime import datetime
 from decimal import Decimal
+from typing import Optional, List
+
+from pydantic import BaseModel, Field, validator
 
 
 class ShareholderProfileBase(BaseModel):

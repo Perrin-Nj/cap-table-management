@@ -2,9 +2,11 @@
 # Follows Open/Closed Principle - extends base without modifying it
 
 from typing import Optional
+
 from sqlalchemy.orm import Session
-from app.repositories.base import BaseRepository
+
 from app.models.user import User, UserRole
+from app.repositories.base import BaseRepository
 from app.schemas.user import UserCreate, UserResponse
 
 

@@ -1,12 +1,13 @@
 # Share issuance service handling complex business logic
 # Central place for share issuance rules and validation
 
-from typing import List, Optional
 from decimal import Decimal
+from typing import List, Optional
+
 from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
+
 from app.repositories.shareholder import ShareholderRepository, ShareIssuanceRepository
-from app.repositories.audit import AuditRepository
 from app.schemas.shareholder import ShareIssuanceCreate, ShareIssuanceResponse
 from app.services.audit import AuditService
 

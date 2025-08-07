@@ -1,18 +1,20 @@
 # PDF generation service using ReportLab
 # Single responsibility: Generate share certificates
 
-from typing import Optional
-from io import BytesIO
 from datetime import datetime
-from reportlab.lib.pagesizes import letter, A4
+from io import BytesIO
+from typing import Optional
+
+from reportlab.lib import colors
+from reportlab.lib.enums import TA_CENTER, TA_LEFT
+from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
-from reportlab.lib import colors
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, Image
-from reportlab.lib.enums import TA_CENTER, TA_LEFT, TA_RIGHT
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
 from sqlalchemy.orm import Session
-from app.repositories.shareholder import ShareIssuanceRepository
+
 from app.config import settings
+from app.repositories.shareholder import ShareIssuanceRepository
 
 
 class PDFService:
@@ -230,7 +232,7 @@ class PDFService:
         page_width, page_height = A4
         canvas.translate(page_width / 2, page_height / 2)
         canvas.rotate(45)
-        canvas.drawCentredString(0, 0, "SHARE CERTIFICATE")
+        canvas.drawCentredString(0, 0, "PROTECTED CERTIFICATE")
 
         # Restore canvas state
         canvas.restoreState()

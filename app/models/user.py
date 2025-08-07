@@ -1,10 +1,12 @@
 # User model following Single Responsibility Principle
 # This model only handles user-related data structure
 
+import enum
+
 from sqlalchemy import Column, Integer, String, Enum, DateTime, Boolean
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
-import enum
+
 from app.database import Base
 
 

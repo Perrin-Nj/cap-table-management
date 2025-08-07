@@ -1,9 +1,11 @@
 # Pydantic schemas for request/response validation
 # Following Interface Segregation Principle - specific interfaces for specific needs
 
-from pydantic import BaseModel, EmailStr, Field
-from typing import Optional
 from datetime import datetime
+from typing import Optional
+
+from pydantic import BaseModel, EmailStr, Field
+
 from app.models.user import UserRole
 
 
