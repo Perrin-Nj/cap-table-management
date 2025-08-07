@@ -182,12 +182,10 @@ pip install -r requirements.txt
 ### 3. Configure Database
 
 ```bash
-createdb cap_table_db
-cp .env.example .env
-nano .env  # or open it in your editor
+docker compose up -d # Start the PostgreSQL container
 ```
 
-Edit the `.env` file:
+Edit the `.env` file if needed:
 
 ```env
 DATABASE_URL=postgresql://username:password@localhost:5432/cap_table_db
@@ -286,8 +284,7 @@ username=admin@captable.com&password=admin123
 
 This project leverages AI tooling to accelerate and improve software quality:
 
-- **Cursor AI** – For AI pair programming and code generation  
-- **GitHub Copilot** – For intelligent autocompletion  
+- **Claude Sonnet 4** – For AI pair programming and code generation   
 - **Claude 3.5** – For architectural design assistance  
 - **OpenAI ChatGPT** – For documentation and code reviews
 
